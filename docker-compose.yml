@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    build: ./database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: signup
+
+  web:
+    build: .
+    restart: always
+    ports:
+      - "9095:8080"
+    links:
+      - "db"
+    depends_on:
+      - "db"

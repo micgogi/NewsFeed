@@ -1,0 +1,42 @@
+
+
+
+<table class="table table-sm table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Search Time</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+
+
+    
+
+    
+        <tr  *ngFor="let keyword1 of keywordSearch; let i = index">
+            
+            <td>  {{ i+1 }}</td>
+            <td> {{keyword1.keyword}}</td>
+             <td>{{keyword1.localTime}}</td>
+             <td> <button type="button" class="btn btn-danger" (click)="deleteKeyword(keyword1.id)">Delete</button></td>
+          </tr>
+      
+       
+     
+   
+  </tbody>
+</table>
+
+
+
+
+
+
+
+<!-- <li *ngFor="let keyword1 of keywordSearch">
+  {{ keyword1.id }}
+  {{keyword1.keyword}}
+</li> -->

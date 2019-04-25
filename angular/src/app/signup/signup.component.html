@@ -1,0 +1,58 @@
+
+
+
+
+
+
+    <div class="container"  align="center">
+      <div  style="max-width:350px; " >
+          <h3>Registration Form</h3>
+      <hr>
+      <div *ngIf="isSignedUp;">
+          Your registration is successful. Please login!
+        </div>
+          <div *ngIf=" isSignUpFailed" class="alert alert-warning">
+              Signup failed!<br/>{{errorMessage}}
+            </div>
+        <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()" >
+        
+
+          <div class="form-group">
+            <label for="username" style="text-align:left">Username</label>
+            <input type="text" id="username" class="form-control" formControlName="username" [ngClass]="{'is-invalid': submitted && f.username.errors}" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf="f.username.errors.required" style="color: red;text-align: left;">Username is required</div> 
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="email" style="text-align:left">Email</label>
+            <input type="text" id="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': submitted && f.email.errors}"  />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required" style="color: red;text-align: left;">Email is required</div>
+              <div *ngIf="f.email.errors.email" style="color: red;text-align: left;">Email must be a valid email address</div>
+            </div>
+            
+          </div>
+
+          <div class="form-group">
+            <label for="password" style="text-align:left">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password"  [ngClass]="{'is-invalid': submitted && f.password.errors}"/>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+               <div *ngIf="f.password.errors.required"  style="color: red;text-align: left;">Password is required</div>
+              <div *ngIf="f.password.errors.minlength" style="color: red;text-align: left;">Password must be at least 6 characters</div> 
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button id="signup" class="btn btn-primary float-right">Register</button>
+            <button routerLink="/login" type="button" class="btn btn-link float-left">Already have an account?</button>  
+            
+            
+          </div>
+          
+        </form>
+            
+      </div>
+    </div>

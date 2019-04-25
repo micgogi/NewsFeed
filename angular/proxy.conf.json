@@ -1,0 +1,7 @@
+{
+    "/NewsFeedSearch":{
+        "target":"http://localhost:46001",
+        "secure":false,
+        "changeOrigin":true
+    }
+}

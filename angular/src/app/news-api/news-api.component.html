@@ -1,0 +1,91 @@
+<div style="height:'100%'; width:'70%';">
+
+<div >
+  <div  style="background-color: #262626  ; color:#e6e6e6;">
+  
+    
+
+
+    <form [formGroup]="searchForm" (ngSubmit)="searchArticles(searchForm.value)" class="form-inline my-2 my-lg-0 float-right">
+      <div>
+         <input formControlName="search"  class="form-control mr-sm-2 form-control-sm my-1" id="search" type="search" placeholder="Search for latest News" aria-label="Search"> 
+        </div>
+      <button class="btn btn-outline-primary mx-auto my-1 my-sm-0 btn-sm" id="searchButton"  type="submit">Search</button> 
+      
+    
+      <button class="btn btn-outline-info mx-2 btn-sm my-1" id="searchHistory" type="button" (click)="SearchHistory()"> Search History </button> 
+        
+        </form>
+  
+        
+  </div>
+  <!-- <div style="background-color:white; box-shadow: 5px 10px #888888; color:#e6e6e6  ; ">
+
+    <div style=" float:left; width:10%; height:40px; background-color:#38F7E2; padding-top: 8px; padding-bottom: 8px; color:black;">
+      News Highlights:
+    </div>
+
+    <div  style=" float:right; width:88%; height:100%;">
+      <p><marquee style="padding:2px;" behavior="scroll" direction="left">Poo</marquee></p>
+    </div>
+  </div> -->
+</div>
+
+  <div>
+    <div class="row col-12" style="margin:30px 10px 10px 10px">
+      <div *ngFor="let article of mArticles; let i=index" class="card col-lg-3 col-md-6 col-sm-8 mx-auto my-3"
+        style="border-radius: 25px; object-fit: cover; overflow: hidden;">
+
+
+        <a class="movieCards" href="#" role="button" style="position:relative;">
+          <img class="card-img-top" src={{article.urlToImage}} style="object-fit:cover; overflow: hidden;" width="70"
+            height="180" alt="">
+        </a>
+        <div class="card-body">
+          <h6 style=" text-align: justify;  text-justify: newspaper;" class="card-title">{{article.title}}</h6>
+          <hr>
+          <p style=" text-align: justify;  text-justify: newspaper; font-size: 12px;" class="card-text">
+            {{article.description}}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Published: {{article.publishedAt | date}}</small>
+          <a href={{article.url}} target="_blank" class="card-link float-right"> Read More...</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+<div style="align-content: center;" class="mx-auto col-md-2 offset-md-6">
+  <button class="btn btn-outline-info mx-2 btn-sm my-1 btn-lg btn-block" align="center"id="loadMore" type="button" (click)="loadMore()"> Load More </button> 
+</div>
+
+  
+
+
+
+
+
+<!-- 
+
+
+<div class="container" style="margin-top: 2%;">
+  <button class=" container btn btn-danger" style="width: 85px; height: 56px; margin-inline-start: 92%;margin-bottom: 2%; border-radius: 5px;" (click)="logout()">Log Out</button>
+  <h1 class="container" style="background: cornflowerblue; color: white; align-items: center;">News</h1>
+</div>
+<div class="jumbotron col-lg-10 mx-auto">
+  <div *ngFor="let article of mArticles">
+    <div class="card" style="border: 0">
+      <h4 class="card-title">{{article.title}}</h4>
+      <h4 class="card-subtitle mb-2 text-muted">{{article.publishedAt | date}}</h4>
+      <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
+      <div class="card-body">
+        <p>
+          {{article.description}}
+        </p>
+      </div>
+      <a href={{article.url}} target="_blank" class="card-link"><i class="fa fa-eye" style="font-size:18px"> Read
+          More...</i></a>
+    </div>
+    <br>
+  </div>
+</div> -->
